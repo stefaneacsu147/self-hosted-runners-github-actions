@@ -3,7 +3,7 @@ FROM debian:buster-slim
 ENV GITHUB_PAT "YOUR_PERSONAL_ACCESS_TOKEN"
 ENV GITHUB_TOKEN "GITHUB_TOKEN"
 ENV GITHUB_ORGANIZATION ""
-# ENV GITHUB_REPOSITORY "webshop-test-automation" # USE THE ENV if you do not want it at ORG level and bound to a specific repository
+# ENV GITHUB_REPOSITORY  USE THE ENV if you do not want it at ORG level and bound to a specific repository
 ENV RUNNER_WORKDIR "_work"
 ENV RUNNER_LABELS ""
 ENV ADDITIONAL_PACKAGES ""
