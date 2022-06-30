@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runner
+  namespace: github-actions
+  labels:
+    app: runner
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: runner
+  template:
+    metadata:
+      labels:
+        app: runner
+    spec:
+      containers:
+      - name: runner
+        image: gcr.io/${PROJECT_ID}/runner:latest # I used for this example GCR but please change your image if use docker or other repository managers
+        env:
+        - name: GITHUB_OWNER
+          value:
+          # - name: GITHUB_REPOSITORY
+          # value:
+        - name: GITHUB_PERSONAL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-secret
+              key: GITHUB_PERSONAL_TOKEN
